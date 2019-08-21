@@ -1,9 +1,9 @@
 from Bio.SeqIO.QualityIO import FastqGeneralIterator
 from zipfile import ZipFile
-from Bucket import Bucket
+from File_loader import *
 import datetime
 
-def add_end(i, dir="undetermined R2.txt"):
+def add_end(i, dir="10x_VDJ_030619_TDLN1_1_S5_L001_R2_001.fastq"):
     ind = 0
     for title, seq, qual in FastqGeneralIterator(open(dir)):
         ind += 1
@@ -47,7 +47,7 @@ buckets = {}
 unq_bar = []
 
 save_num = 1
-with open("undetermined R1.txt") as in_handle:
+with open("10x_VDJ_030619_TDLN1_1_S5_L001_R1_001.fastq") as in_handle:
     for title, seq, qual in FastqGeneralIterator(in_handle):
         index += 1
         bar = seq[:16] + seq[25:]
